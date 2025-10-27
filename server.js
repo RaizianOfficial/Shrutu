@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit');
 const crypto = require('crypto');
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -134,3 +135,4 @@ setInterval(() => {
 }, 60 * 1000);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
